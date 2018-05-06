@@ -1,3 +1,4 @@
+namespace detail {
 template <typename Key, typename TagType>
 struct NodeType {
   typedef Key key_type;
@@ -24,3 +25,4 @@ struct Context {
   enum { mark_ptr_num = M };
   MPType mark_ptrs[M];
 };
+}

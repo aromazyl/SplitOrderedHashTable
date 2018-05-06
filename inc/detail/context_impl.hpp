@@ -1,3 +1,4 @@
+namespace detail {
 class Context {
 public:
   template <typename T>
@@ -17,3 +18,4 @@ private:
   std::unordered_map<std::string, Context*> _context;
 
 };
+}
