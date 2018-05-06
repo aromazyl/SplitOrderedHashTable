@@ -1,4 +1,3 @@
-#include <atomic>
 #include "inc/detail/node_def.hpp"
 #include "inc/detail/context_impl.hpp"
 
@@ -23,12 +22,8 @@ public:
 
 private:
   mark_ptr_type* _prev;
-  mark_ptr_type _pmark;
-  mark_ptr_type _cur;
-  mark_ptr_type _ptag;
-  mark_ptr_type _cmark;
-  mark_ptr_type _next;
-  mark_ptr_type _ctag;
+  mark_ptr_type _pmark_curr_ptag;
+  mark_ptr_type _cmark_next_ctag;
 
 };
 }
