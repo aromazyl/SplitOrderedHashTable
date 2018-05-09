@@ -1,4 +1,4 @@
-#incldue "inc/detail/atomic_op.hpp"
+#include "inc/detail/atomic_op.hpp"
 #include "inc/detail/node_def.hpp"
 #include "inc/detail/context_impl.hpp"
 
@@ -63,7 +63,17 @@ public:
           try_agin = true;
           break;
         }
-        if (!)
+        if (!_cmark_next_ctag.mark) {
+          if (_cmark_next_ctag.key >= key) return _cmark_next_ctag == key;
+          _prev = &_pmark_curr_ptag;
+        } else {
+          if (__sync_bool_compare_and_swap(_prev, \
+                MPtrType{0, _pmark_curr_ptag.next, _pmark_curr_ptag.tag}, \
+                MPtrType{0, _cmark_next_ctag.next, _pmark_curr_ptag.tag + 1})) {
+            DeleteNode(_pmark_curr_ptag.next);
+            _cmark_next_ctag.tag = _pmark_curr_ptag.tag + 1;
+          }
+        }
       }
     }
 
